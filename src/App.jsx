@@ -1,28 +1,18 @@
-import './App.css'
-import { useSelector, useDispatch } from "react-redux";
+import { Box } from "@mui/material";
+import "./App.css";
 
-import { toggleNav } from './redux/slices/TabsSlice';
-
-
+import AppMainBar from "./Components/AppBar";
+import MainBody from "./Components/MainBody";
+import SideBar from "./Components/SideBar";
 
 function App() {
-
-  const dispatch=useDispatch()
-
-  const toggle = useSelector((state) => state.tabSlice.tabs ); 
-  
- console.log(toggle ,"ehgu")
-
   return (
-    <>
-      <h1>Avinash</h1>
-      <h1>{toggle ? "true" : "false"}</h1>
-
-      <button onClick={() => dispatch(toggleNav())}>
-        {toggle ? "true" : "false"}
-      </button>
-    </>
+    <Box sx={{ display: 'flex' }}>
+      <AppMainBar />
+      <SideBar />
+      <MainBody />
+    </Box>
   );
 }
 
-export default App
+export default App;
