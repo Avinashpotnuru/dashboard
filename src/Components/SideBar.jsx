@@ -18,15 +18,13 @@ import MailIcon from "@mui/icons-material/Mail";
 import { useSelector, useDispatch } from "react-redux";
 
 import { toggleNav } from "../redux/slices/TabsSlice";
+import { Link } from "@mui/material";
 
 const SideBar = () => {
   const theme = useTheme();
   const drawerWidth = 240;
   const open = useSelector((state) => state.tabSlice.tabs);
   const dispatch = useDispatch();
-
-
-
 
   const openedMixin = (theme) => ({
     width: drawerWidth,
@@ -75,7 +73,7 @@ const SideBar = () => {
   }));
 
   const handleDrawerClose = () => {
-    dispatch(toggleNav())
+    dispatch(toggleNav());
   };
   return (
     <Drawer variant="permanent" open={open}>
@@ -90,9 +88,11 @@ const SideBar = () => {
       </DrawerHeader>
       <Divider />
       <List>
-        {["Home","About","Settings"].map((text, index) => (
+        {["Home", "About", "Settings"].map((text, index) => (
           <ListItem key={text} disablePadding sx={{ display: "block" }}>
             <ListItemButton
+              component={Link}
+              to={`/${text.toLowerCase()}`} // Use the appropriate route
               sx={{
                 minHeight: 48,
                 justifyContent: open ? "initial" : "center",
@@ -113,8 +113,6 @@ const SideBar = () => {
           </ListItem>
         ))}
       </List>
-     
-     
     </Drawer>
   );
 };

@@ -1,33 +1,17 @@
 import { Box } from "@mui/material";
-import { Link, RouterProvider, createBrowserRouter } from "react-router-dom";
-
-const Home = () => (
-  <div>
-    <h1>Hello World</h1>
-    <Link to="/about">About Us</Link>
-  </div>
-);
-
-const About = () => (
-  <div>
-    <h1>About Us</h1>
-    <Link to="/">Home</Link>
-  </div>
-);
-const router = createBrowserRouter([
-  {
-    path: "/",
-    element: <Home />,
-  },
-  {
-    path: "about",
-    element: <About />,
-  },
-]);
+import {  Navigate, Route, Routes } from "react-router-dom";
+import Home from "../pages/Home";
+import About from "../pages/About";
+import Settings from "../pages/Settings";
 
 const MainBody = () => (
   <Box component="main" sx={{ flexGrow: 1, pt: "60px" }}>
-    <RouterProvider router={router} />
+    <Routes>
+      <Route path="/" element={<Navigate to="/home" />} />
+      <Route path="/home" element={<Home />} />
+      <Route path="/about" element={<About />} />
+      <Route path="/settings" element={<Settings />} />
+    </Routes>
   </Box>
 );
 
