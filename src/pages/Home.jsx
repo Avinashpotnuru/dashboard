@@ -5,10 +5,12 @@ import {
   CardActions,
   CardContent,
   Grid,
+  Paper,
   Typography,
 } from "@mui/material";
 import React from "react";
 import DataTable from "../Components/DataTable";
+import StackBars from "../Components/Charts/StackBars";
 
 const Home = () => {
   return (
@@ -49,7 +51,19 @@ const Home = () => {
           </Grid>
         ))}
       </Grid>
-      <DataTable/>
+      <Grid container spacing={2} sx={{mt:"20px"}} >
+        <Grid item xs={12} md={6}>
+          <Paper>
+            <StackBars />
+          </Paper>
+        </Grid>
+        <Grid item xs={12} md={6}>
+          <Paper>
+            <StackBars />
+          </Paper>
+        </Grid>
+      </Grid>
+      <Grid container><DataTable /> </Grid>
     </>
   );
 };
