@@ -51,19 +51,18 @@ const Home = () => {
           </Grid>
         ))}
       </Grid>
-      <Grid container spacing={2} sx={{mt:"20px"}} >
+      <Grid container spacing={2} sx={{ mt: "20px" }}>
         <Grid item xs={12} md={6}>
-          <Paper>
+          <Paper sx={{ display: "flex" }}>
             <StackBars />
           </Paper>
         </Grid>
         <Grid item xs={12} md={6}>
-          <Paper>
+          <Paper sx={{ display: "flex" }}>
             <StackBars />
           </Paper>
         </Grid>
       </Grid>
-      <Grid container><DataTable /> </Grid>
     </>
   );
 };
